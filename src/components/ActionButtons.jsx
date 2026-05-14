@@ -1,7 +1,7 @@
 export default function ActionButtons({ onRequestNew }) {
   return (
     <div className="gap-0 border-b border-gray-200 shrink-0">
-      <div className="flex gap-4 w-1/3 m-3">
+      <div className="flex flex-col md:flex-row text-sx md:text-md gap-4 w-1/3 m-3">
         <button
           onClick={() => onRequestNew('file')}
           className="rounded-lg w-full px-4 py-3 hover:bg-blue-100 text-gray-900 border-gray-900 border-3 transition-colors text-left"
