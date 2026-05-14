@@ -16,9 +16,9 @@ export default function FileNode({ node, onRename, onDelete }) {
   };
 
   return (
-    <div className="group flex items-center gap-1 px-2 py-0.5 rounded hover:bg-blue-50 cursor-default">
+    <div className="group  flex items-center gap-1 px-2 py-0.5 rounded hover:bg-blue-50 cursor-default">
       <span className="w-3 flex-shrink-0" />
-      <span className="text-sm leading-none mr-0.5">📄</span>
+      <span className="leading-none mr-0.5">📄</span>
       {isRenaming ? (
         <input
           autoFocus
@@ -29,11 +29,11 @@ export default function FileNode({ node, onRename, onDelete }) {
             if (e.key === 'Escape') { setRenameVal(node.name); setIsRenaming(false); }
           }}
           onBlur={commitRename}
-          className="text-xs px-1 py-0 border border-blue-300 rounded font-mono bg-white focus:outline-none focus:ring-1 focus:ring-blue-400 w-32"
+          className="text-md px-1 py-0 border border-blue-300 rounded   bg-white focus:outline-none focus:ring-1 focus:ring-blue-400 w-32"
         />
       ) : (
         <span
-          className="text-xs text-gray-700 flex-1 font-mono"
+          className="text-md text-gray-700 flex-1  "
           onDoubleClick={() => setIsRenaming(true)}
         >
           {node.name}
@@ -43,14 +43,14 @@ export default function FileNode({ node, onRename, onDelete }) {
         <button
           onClick={() => setIsRenaming(true)}
           title="Rename"
-          className="text-xs px-1 py-0.5 hover:bg-blue-100 rounded text-gray-400 hover:text-blue-700"
+          className="text-md px-1 py-0.5 hover:bg-blue-100 rounded text-gray-400 hover:text-blue-700"
         >
           ✎
         </button>
         <button
           onClick={() => setShowConfirm(true)}
           title="Delete"
-          className="text-xs px-1 py-0.5 hover:bg-red-100 rounded text-gray-400 hover:text-red-600"
+          className="text-md px-1 py-0.5 hover:bg-red-100 rounded text-gray-400 hover:text-red-600"
         >
           ✕
         </button>

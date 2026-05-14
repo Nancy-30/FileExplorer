@@ -39,11 +39,19 @@ export default function FolderNode({ node, onAddFile, onAddFolder, onRename, onD
       <div className="group flex items-center gap-1 px-2 py-0.5 rounded hover:bg-blue-50 cursor-pointer">
         <span
           onClick={() => setIsOpen(o => !o)}
-          className="text-blue-500 w-3 text-xs flex-shrink-0 font-mono"
+          className="w-3 flex-shrink-0 text-gray-400 flex items-center"
         >
-          {isOpen ? '▼' : '▶'}
+          {isOpen ? (
+            <svg viewBox="0 0 10 10" width="10" height="10" fill="currentColor">
+              <path d="M1 3 L5 7 L9 3" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          ) : (
+            <svg viewBox="0 0 10 10" width="10" height="10" fill="currentColor">
+              <path d="M3 1 L7 5 L3 9" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          )}
         </span>
-        <span className="mr-0.5 text-sm leading-none" onClick={() => setIsOpen(o => !o)}>
+        <span className="mr-0.5 text-lg leading-none" onClick={() => setIsOpen(o => !o)}>
           {isOpen ? '📂' : '📁'}
         </span>
         {isRenaming ? (
@@ -57,11 +65,11 @@ export default function FolderNode({ node, onAddFile, onAddFolder, onRename, onD
             }}
             onBlur={commitRename}
             onClick={e => e.stopPropagation()}
-            className="text-xs px-1 py-0 border border-blue-300 rounded font-mono bg-white focus:outline-none focus:ring-1 focus:ring-blue-400 w-32"
+            className="text-md px-1 py-0 border border-blue-300 rounded   bg-white focus:outline-none focus:ring-1 focus:ring-blue-400 w-32"
           />
         ) : (
           <span
-            className="text-xs text-gray-800 flex-1 font-mono"
+            className="text-md text-gray-800 flex-1  "
             onClick={() => setIsOpen(o => !o)}
             onDoubleClick={() => setIsRenaming(true)}
           >
@@ -72,28 +80,28 @@ export default function FolderNode({ node, onAddFile, onAddFolder, onRename, onD
           <button
             onClick={e => { e.stopPropagation(); startAdding('file'); }}
             title="New File"
-            className="text-xs px-1 py-0.5 hover:bg-blue-100 rounded text-gray-400 hover:text-blue-700 font-mono"
+            className="text-md px-1 py-0.5 hover:bg-blue-100 rounded text-gray-400 hover:text-blue-700  "
           >
             +f
           </button>
           <button
             onClick={e => { e.stopPropagation(); startAdding('folder'); }}
             title="New Folder"
-            className="text-xs px-1 py-0.5 hover:bg-blue-100 rounded text-gray-400 hover:text-blue-700 font-mono"
+            className="text-md px-1 py-0.5 hover:bg-blue-100 rounded text-gray-400 hover:text-blue-700  "
           >
             +d
           </button>
           <button
             onClick={e => { e.stopPropagation(); setIsRenaming(true); }}
             title="Rename"
-            className="text-xs px-1 py-0.5 hover:bg-blue-100 rounded text-gray-400 hover:text-blue-700"
+            className="text-md px-1 py-0.5 hover:bg-blue-100 rounded text-gray-400 hover:text-blue-700"
           >
             ✎
           </button>
           <button
             onClick={e => { e.stopPropagation(); setShowConfirm(true); }}
             title="Delete"
-            className="text-xs px-1 py-0.5 hover:bg-red-100 rounded text-gray-400 hover:text-red-600"
+            className="text-md px-1 py-0.5 hover:bg-red-100 rounded text-gray-400 hover:text-red-600"
           >
             ✕
           </button>
@@ -112,7 +120,7 @@ export default function FolderNode({ node, onAddFile, onAddFolder, onRename, onD
         <div className="ml-4 border-l border-blue-100 pl-1">
           {addingType && (
             <div className="flex items-center gap-1 px-2 py-0.5">
-              <span className="text-xs">{addingType === 'file' ? '📄' : '📁'}</span>
+              <span className="text-md">{addingType === 'file' ? '📄' : '📁'}</span>
               <input
                 autoFocus
                 value={addVal}
@@ -123,7 +131,7 @@ export default function FolderNode({ node, onAddFile, onAddFolder, onRename, onD
                 }}
                 onBlur={commitAdd}
                 placeholder={addingType === 'file' ? 'filename.txt' : 'folder-name'}
-                className="text-xs px-2 py-0.5 border border-blue-300 rounded font-mono bg-white focus:outline-none focus:ring-1 focus:ring-blue-400 w-36"
+                className="text-md w-1/2 px-2 py-0.5 border border-blue-300 rounded   bg-white focus:outline-none focus:ring-1 focus:ring-blue-400 w-36"
               />
             </div>
           )}
