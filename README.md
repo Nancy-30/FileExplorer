@@ -42,5 +42,4 @@ The application will be available at `http://localhost:5173`.
 - Click the **+f** button to add a new file to the current folder.
 - Click the **+d** button to add a new folder to the current folder.
 - Click the **delete** button (✕) to remove an item.
-- Use **Enter** to confirm changes and **Escape** to cancel.
 
