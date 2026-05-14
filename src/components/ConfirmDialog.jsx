@@ -5,7 +5,7 @@ export default function ConfirmDialog({ name, type, onConfirm, onCancel }) {
       onClick={onCancel}
     >
       <div
-        className="bg-white border border-gray-200 rounded-lg shadow-lg p-5 w-[40%]  "
+        className="bg-white border border-gray-200 rounded-lg shadow-lg p-5 md:w-[40%] w-[90%] "
         onClick={e => e.stopPropagation()}
       >
         <p className="text-md text-gray-500 mb-1 uppercase tracking-widest">
